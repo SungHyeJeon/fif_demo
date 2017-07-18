@@ -1,0 +1,106 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="oj-applayout-fixed-top">
+      <!--
+       ** Oracle JET V3.0.0 hybrid mobile application header pattern.
+       ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+       ** more information on how to use this pattern.
+    -->
+    <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+    </header>
+  </div>
+  <!-- This is where your main page content will be loaded -->
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content">
+      <div class="oj-hybrid-padding">
+        <h1 style="padding-left:10px;">Number of Incidents by Technician</h1>
+        <div id='chart-container'>
+          <div class="oj-flex oj-sm-flex-items-initial oj-flex-items-pad">
+           </div>
+           <div id="pieChart"  data-bind="ojComponent: {
+                component: 'ojChart',
+                type: 'pie',
+                series: pieSeriesValue,
+                groups: pieGroupsValue,
+                styleDefaults: {pieInnerRadius: ko.toJS(innerRadius)},
+                animationOnDataChange: 'auto',
+                pieCenter: {
+                  label: 'Number of Incidents',
+                  labelStyle: ''}
+                }"
+                style="max-width:500px;width:100%;height:350px;">
+           </div>
+        </div>
+        <div  id="chart-container">
+          <h1 style="padding-left:10px;">Daily Incidents Report</h1>
+          <div class="oj-flex oj-sm-flex-items-initial oj-flex-items-pad" style="width:100%; max-width:680px;">
+            <div class="oj-flex-item" style="display:inline-block;padding-right:20px;margin-bottom:15px;">
+              <h3 >January</h3>
+              <div style="word-spacing:6px;margin-left:6px;">S M T W T F S</div>
+              <div id='pictochart1' data-bind="ojComponent:{
+                  component: 'ojPictoChart',
+                  items: janItems,
+                  rowHeight: 20,
+                  layout: 'horizontal',
+                  columnCount: 7,
+                  tooltip: {renderer: tooltipFunction}
+                }" style="">
+              </div>
+            </div>
+            <div class="oj-flex-item" style="display:inline-block;padding-right:20px;">
+              <h3 >February</h3>
+              <div style="word-spacing:6px;margin-left:6px;">S M T W T F S</div>
+              <div id='pictochart2' data-bind="ojComponent:{
+                  component: 'ojPictoChart',
+                  items: febItems,
+                  rowHeight: 20,
+                  layout: 'horizontal',
+                  columnCount: 7,
+                  tooltip: {renderer: tooltipFunction}
+                }" style="">
+              </div>
+            </div>
+            <div class="oj-flex-item" style="display:inline-block;padding-right:20px;">
+              <h3 >March</h3>
+              <div style="word-spacing:6px;margin-left:6px;">S M T W T F S</div>
+              <div id='pictochart3' data-bind="ojComponent:{
+                  component: 'ojPictoChart',
+                  items: marItems,
+                  rowHeight: 20,
+                  layout: 'horizontal',
+                  columnCount: 7,
+                  tooltip: {renderer: tooltipFunction}
+                }" style="">
+              </div>
+            </div>
+            <div class="oj-flex-item" style="display:inline-block;">
+              <h3 >April</h3>
+              <div style="word-spacing:6px;margin-left:6px;">S M T W T F S</div>
+              <div id='pictochart4' data-bind="ojComponent:{
+                  component: 'ojPictoChart',
+                  items: aprilItems,
+                  rowHeight: 20,
+                  layout: 'horizontal',
+                  columnCount: 7,
+                  tooltip: {renderer: tooltipFunction}
+                }" style="">
+              </div>
+            </div>
+            <div class="oj-flex-item" style="display:inline-block;max-height:50px;width:100%;" data-bind="ojComponent: {
+                  component: 'ojLegend',
+                  orientation: 'horizontal',
+                  sections: legendSections,
+                  symbolWidth: 15,
+                  symbolHeight: 15,
+                  hAlign: 'center'
+                  }">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

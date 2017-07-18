@@ -1,0 +1,59 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="oj-applayout-fixed-top">
+      <!--
+       ** Oracle JET V3.0.0 hybrid mobile application header pattern.
+       ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+       ** more information on how to use this pattern.
+    -->
+    <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+    </header>
+  </div>
+  <!-- This is where your main page content will be loaded -->
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content">
+      <div class="oj-hybrid-padding">
+
+        <input id="text-input"
+               type="text"
+               data-bind="visible: isAdmin(), ojComponent: {component: 'ojInputText',
+                                        value: value}"/>
+        <a id="anchor" href="#last"
+           data-bind="visible: isAdmin(), click: buttonClick,
+                      ojComponent: { component: 'ojButton' }">Create a New Incident</a>
+
+
+
+
+        <ul id="listview" aria-label="list using array"
+              data-bind="ojComponent: {component: 'ojListView', data: dataSource, item: {template: 'server_template'}, selectionMode: 'single'}">
+        </ul>
+
+        <script type="text/html" id="server_template">
+            <li data-bind="attr: {id: $data['Id']}">
+              <div class="oj-flex">
+                <div class="oj-flex-item oj-flex oj-sm-2 oj-md-1 oj-lg-1">
+                   <span class="avatar" style="background-image: url('./img/icons/priority/qual_priorityhigh_32.svg')"></span>
+                </div>
+
+
+                </div>
+                <div class="oj-flex oj-flex-item oj-sm-10 oj-md-11 oj-lg-11">
+                  <div class="oj-flex-item oj-sm-12 oj-md-8 oj-lg-8">
+                      <span class="name" data-bind="text: $data['Title']"></span>
+                  </div>
+                  <div class="oj-flex-item oj-sm-12 oj-md-4 oj-md-text-align-end oj-lg-4">
+                      <span class="oj-text-xs oj-text-secondary-color" data-bind="text: $data['TechnicianAssigned']"></span>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
